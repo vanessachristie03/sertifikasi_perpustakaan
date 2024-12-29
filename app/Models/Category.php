@@ -9,9 +9,8 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['code', 'name'];
+    protected $fillable = ['name', 'category_id'];
 
-    // Relasi ke Buku
     public function books()
     
     {

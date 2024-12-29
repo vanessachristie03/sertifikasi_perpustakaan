@@ -12,7 +12,7 @@ class BookRental extends Model
     protected $fillable = [
         'name',
         'book_id',
-        'member_id', // Add member_id as fillable
+        'member_id', 
         'rent_date',
         'return_date',
     ];

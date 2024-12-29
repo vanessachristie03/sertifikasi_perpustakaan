@@ -10,7 +10,6 @@
     <div class="container mt-5">
         <h1 class="text-center">Books List</h1>
 
-        <!-- Search Form -->
         <div class="mb-4">
             <form action="{{ route('books.index') }}" method="GET" class="d-flex">
                 <input type="text" name="search" class="form-control me-2" placeholder="Search by title" value="{{ request()->search }}">
@@ -18,14 +17,13 @@
             </form>
         </div>
 
-        <!-- Navigation Buttons -->
         <div class="mb-4 d-flex justify-content-between">
             <a href="{{ route('books.create') }}" class="btn btn-primary">Add New Book</a>
             <a href="{{ route('members.index') }}" class="btn btn-secondary">View Members</a>
             <a href="{{ route('rentallist') }}" class="btn btn-success">View Rentals List</a>
+            <a href="{{ route('categories.create') }}" class="btn btn-info">View Book Category</a>
         </div>
 
-        <!-- Books Table -->
         <table class="table table-bordered">
             <thead>
                 <tr>

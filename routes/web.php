@@ -33,3 +33,6 @@ Route::get('/members/create', [MemberController::class, 'create'])->name('member
 Route::post('/members', [MemberController::class, 'store'])->name('members.store');
 
 
+use App\Http\Controllers\CategoryController;
+
+Route::resource('categories', CategoryController::class);
