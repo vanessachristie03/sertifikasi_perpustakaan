@@ -15,6 +15,7 @@ class BookRental extends Model
         'member_id', 
         'rent_date',
         'return_date',
+        'is_returned',
     ];
 
     public function book()

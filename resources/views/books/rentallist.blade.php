@@ -26,6 +26,7 @@
                     <th>Member Name</th>
                     <th>Rent Date</th>
                     <th>Return Date</th>
+                    <th>Returned</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -39,17 +40,29 @@
                     <td>{{ $rental->rent_date }}</td>
                     <td>{{ $rental->return_date }}</td>
                     <td>
-                        <form action="{{ route('rentals.destroy', $rental->id) }}" method="POST">
+                        @if($rental->is_returned)
+                            <span class="badge bg-success">Yes</span>
+                        @else
+                            <span class="badge bg-danger">No</span>
+                        @endif
+                    </td>
+                    <td>
+                        @if(!$rental->is_returned)
+                        <form action="{{ route('rentals.return', $rental->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-success btn-sm">Mark as Returned</button>
+                        </form>
+                        @endif
+                        <form action="{{ route('rentals.destroy', $rental->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this rental?')">Delete</button>
                         </form>
-                        
                     </td>
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="7" class="text-center">No rentals available.</td>
+                    <td colspan="8" class="text-center">No rentals available.</td>
                 </tr>
                 @endforelse
             </tbody>

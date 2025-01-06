@@ -25,6 +25,8 @@ Route::post('/books/rent/store', [BookRentalController::class, 'store'])->name('
 
 
 Route::delete('/rentals/{rental}', [BookRentalController::class, 'destroy'])->name('rentals.destroy');
+Route::post('/rentals/{rental}/return', [BookRentalController::class, 'markAsReturned'])->name('rentals.return');
+
 
 use App\Http\Controllers\MemberController;
 

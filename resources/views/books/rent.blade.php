@@ -80,9 +80,10 @@
                     id="rent_date" 
                     class="form-control" 
                     value="{{ old('rent_date', now()->format('Y-m-d')) }}" 
-                    required
+                    readonly
                 >
             </div>
+      
             <div class="mb-3">
                 <label for="return_date" class="form-label">Return Date</label>
                 <input 
@@ -90,7 +91,7 @@
                     name="return_date" 
                     id="return_date" 
                     class="form-control" 
-                    value="{{ old('return_date') }}" 
+                    value="{{ old('return_date', now()->addDays(7)->format('Y-m-d')) }}" 
                     required
                 >
             </div>
